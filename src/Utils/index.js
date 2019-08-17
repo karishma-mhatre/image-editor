@@ -24,3 +24,17 @@ export const convertCanvasToImage = (canvas) => {
         resolve(imgSrc)
     })
 }
+
+export const convertImageSrcToFile = (imgSrc) => {
+    return new Promise((resolve, reject) => {
+        fetch(imgSrc)
+        .then(res => res.blob())
+        .then(blob => {
+            let file = new File([blob], "File name")
+            resolve(file)
+        })
+        .catch((error) => {
+            reject(error)
+        })
+    })
+}

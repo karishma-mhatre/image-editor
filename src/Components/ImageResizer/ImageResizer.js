@@ -6,26 +6,39 @@ import {Link} from 'react-router-dom'
 
 class ImageResizer extends Component {
     constructor(props) {
-        super(props)
+        super(props);
+        this.state = {
+            isImageResized: false,
+            error: ""
+        }
     }
 
     handleResize = () => {
-        this.props.dispatch(resizeAllImages());
+        if(this.props.currentImageSrc) {
+            this.props.dispatch(resizeAllImages());
+            this.setState({isImageResized: true});
+        }
     }
 
     render() {
         console.log("image resizer rendering");
         return (
             <div>
-                <div>Hello</div>
                 <ImageSelector requiredWidth={1024} requiredHeight={1024}></ImageSelector>
                 <div>
                     <button onClick={this.handleResize}>Resize</button>
-                    <button><Link to="/gallery">View Gallery</Link></button>
+                    {
+                        this.state.isImageResized &&
+                        <button><Link to="/gallery">View Resized Images</Link></button>
+                    }
                 </div>
             </div>
         )
     }
 }
 
-export default connect()(ImageResizer);
+const mapStateToProps = (state) => ({
+    currentImageSrc: state.imageInfo.currentImageSrc
+})
+
+export default connect(mapStateToProps)(ImageResizer);
