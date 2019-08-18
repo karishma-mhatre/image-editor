@@ -17,9 +17,9 @@ https://karishma-mhatre.github.io/image-editor/#/<br>
 
 ### Components Used
 
-1. react-image-crop,  version: ^8.2.1, https://www.npmjs.com/package/react-image-crop#features<br>
+1. react-image-crop,  version: ^8.2.1, https://www.npmjs.com/package/react-image-crop<br>
 
 ### Improvements needed
 
-1. Include custome image data in redux state.
+1. Include cropped image data in redux state.
 2. Styling
