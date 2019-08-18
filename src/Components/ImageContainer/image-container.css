@@ -10,9 +10,9 @@
 }
 
 .image-container__save .btn{
-    width: 80px;
+    width: 100px;
 }
 
-.image-container__link {
+.image-container__link, .image-container__save {
     padding: 10px;
 }

@@ -58,3 +58,8 @@ a, a:link, a:active, a:visited, a:hover {
     justify-content: center;
     align-items: center;
 }
+
+.error-msg {
+    color: red;
+    font-size: 14px;
+}

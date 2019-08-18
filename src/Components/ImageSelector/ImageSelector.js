@@ -24,6 +24,7 @@ class ImageSelector extends Component{
                 })
                 .catch((error) => {
                     this.setState({isValidImage: false})
+                    this.props.dispatch(uploadImage(""));
                 });        
             });
     }
@@ -54,7 +55,7 @@ class ImageSelector extends Component{
                 </div>
                 {
                     this.state.isValidImage === false &&
-                    <div>Image size should be {this.props.requiredWidth} * {this.props.requiredHeight}</div>
+                    <div className="error-msg">Image size should be {this.props.requiredWidth} X {this.props.requiredHeight}</div>
                 }
             </div>
         )
