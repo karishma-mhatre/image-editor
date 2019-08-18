@@ -48,7 +48,7 @@ class ImageSelector extends Component{
         return (
             <div className="container image-selector">
                 <div className="file-upload-wrapper">
-                    <button class="btn">Upload an Image</button>
+                    <button className="btn">Upload an Image</button>
                     <input type="file" name="image" className="image-selector__input" 
                         accept="image/*" onChange={(e) => {e.persist(); this.handleChange(e)}}></input>
                 </div>

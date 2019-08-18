@@ -2,6 +2,10 @@
     flex-direction: column;
 }
 
-.image-selectors--actions .btn{
+.image-resizer__actions .btn{
     margin: 0 10px;
+}
+
+.image-resizer__image img{
+    max-width: 100%;
 }

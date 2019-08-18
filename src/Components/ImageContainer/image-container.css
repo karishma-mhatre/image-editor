@@ -1,7 +1,18 @@
 .image-container {
     flex-direction: column;
+    box-shadow: 5px 5px 20px grey;
+    margin: 10px;
+    position: relative;
 }
 
-.image-container--image img{
+.image-container__image img{
     max-width: 100%;
+}
+
+.image-container__save .btn{
+    width: 80px;
+}
+
+.image-container__link {
+    padding: 10px;
 }

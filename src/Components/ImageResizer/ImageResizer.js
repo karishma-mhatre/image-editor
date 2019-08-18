@@ -25,7 +25,7 @@ class ImageResizer extends Component {
         console.log("image resizer rendering");
         return (
             <div class="container image-resizer">
-                <div class="container image-selectors--actions">
+                <div class="container image-resizer__actions">
                     <ImageSelector requiredWidth={1024} requiredHeight={1024}></ImageSelector>
                     {
                         this.props.currentImageSrc &&
@@ -38,7 +38,7 @@ class ImageResizer extends Component {
                 </div>
                 {
                     this.props.currentImageSrc &&
-                    <div>
+                    <div className="image-resizer__image">
                         <img src={this.props.currentImageSrc}></img>
                     </div>
                 }

@@ -13,21 +13,24 @@ class ImageContainer extends Component {
         let { imageInfo } = this.props;
         return (
             <div className="container image-container">
-                <div className="image-container--image">
+                <div className="image-container__image">
                     <img src={imageInfo.imgSrc}></img>
                 </div>
-                <div class="image-container--save">
-                    <button className="btn" onClick={() => { this.handleSave(imageInfo.type, imageInfo.imgSrc) }}>Save</button>
+                <div class="image-container__save">
+                    <button className={imageInfo.isSaving ? "btn btn_disabled" : "btn"} onClick={() => { this.handleSave(imageInfo.type, imageInfo.imgSrc) }}>Save</button>
                 </div>
-                <div class="image-container--link">
-                    <p>{imageInfo.link}</p>
-                </div>
-                <div class="loader">
-                    {
-                        imageInfo.isSaving &&
-                        <p>saving image..</p>
-                    }
-                </div>
+                {
+                    imageInfo.link &&
+                    <div className="image-container__link">
+                        Image Link: <a href={imageInfo.link}>{imageInfo.link}</a>
+                    </div>
+                }
+                {
+                    imageInfo.isSaving &&
+                    <div className="loader">
+                        <p>Saving Image...</p>
+                    </div>
+                }
             </div>
         )
     }

@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { createStore, applyMiddleware, compose } from 'redux';
 import reducer from './Reducers';
 import { Provider } from 'react-redux';

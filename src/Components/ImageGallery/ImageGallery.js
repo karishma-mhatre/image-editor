@@ -13,9 +13,12 @@ class ImageGallery extends Component {
         return (
             <div className="container image-gallery">
                 {
-                    this.props.images.map((imageInfo, index) => (
-                        <ImageContainer imageInfo={imageInfo} key={index}></ImageContainer>
-                    ))
+                    this.props.images.map((imageInfo, index) => {
+                        if(imageInfo.imgSrc == "") {
+                            window.location.hash = "#/";
+                        }
+                        return <ImageContainer imageInfo={imageInfo} key={index}></ImageContainer>
+                    })
                 }
             </div>
         )
