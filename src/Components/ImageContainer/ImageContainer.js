@@ -16,7 +16,7 @@ class ImageContainer extends Component {
                 <div className="image-container__image">
                     <img src={imageInfo.imgSrc}></img>
                 </div>
-                <div class="image-container__save">
+                <div className="image-container__save">
                     <button className={imageInfo.isSaving ? "btn btn_disabled" : "btn"} onClick={() => { this.handleSave(imageInfo.type, imageInfo.imgSrc) }}>Save</button>
                 </div>
                 {

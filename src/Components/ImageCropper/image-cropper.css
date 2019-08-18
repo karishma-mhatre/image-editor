@@ -1,0 +1,13 @@
+.image-cropper {
+    text-align: center;
+    position: relative;
+}
+
+.image-cropper__cropped-image img{
+    max-width: 100%;
+    max-height: fill-available;
+}
+
+.ReactCrop__image {
+    max-height: fit-content;
+}
