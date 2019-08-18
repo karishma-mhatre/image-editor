@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { uploadImage } from '../../Actions';
 import { convertFileToImageSrc } from '../../Utils';
+import './image-selector.css';
 
 class ImageSelector extends Component{
     constructor(props) {
@@ -45,14 +46,16 @@ class ImageSelector extends Component{
     render() {
         console.log("image selector rendering");
         return (
-            <div>
-                <input type="file" accept="image/*" onChange={(e) => {e.persist(); this.handleChange(e)}}></input>
-                <div>
-                    {
-                        this.state.isValidImage === false &&
-                        <div>Image size should be {this.props.requiredWidth} * {this.props.requiredHeight}</div>
-                    }
+            <div className="container image-selector">
+                <div className="file-upload-wrapper">
+                    <button class="btn">Upload an Image</button>
+                    <input type="file" name="image" className="image-selector__input" 
+                        accept="image/*" onChange={(e) => {e.persist(); this.handleChange(e)}}></input>
                 </div>
+                {
+                    this.state.isValidImage === false &&
+                    <div>Image size should be {this.props.requiredWidth} * {this.props.requiredHeight}</div>
+                }
             </div>
         )
     }

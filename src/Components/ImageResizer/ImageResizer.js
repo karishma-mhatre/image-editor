@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { resizeAllImages } from '../../Actions';
 import ImageSelector from '../ImageSelector/ImageSelector';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import './image-resizer.css';
 
 class ImageResizer extends Component {
     constructor(props) {
@@ -23,15 +24,24 @@ class ImageResizer extends Component {
     render() {
         console.log("image resizer rendering");
         return (
-            <div>
-                <ImageSelector requiredWidth={1024} requiredHeight={1024}></ImageSelector>
-                <div>
-                    <button onClick={this.handleResize}>Resize</button>
+            <div class="container image-resizer">
+                <div class="container image-selectors--actions">
+                    <ImageSelector requiredWidth={1024} requiredHeight={1024}></ImageSelector>
+                    {
+                        this.props.currentImageSrc &&
+                        <button className="btn" onClick={this.handleResize}>Resize</button>
+                    }
                     {
                         this.state.isImageResized &&
-                        <button><Link to="/gallery">View Resized Images</Link></button>
+                        <button className="btn"><Link to="/gallery">View Resized Images</Link></button>
                     }
                 </div>
+                {
+                    this.props.currentImageSrc &&
+                    <div>
+                        <img src={this.props.currentImageSrc}></img>
+                    </div>
+                }
             </div>
         )
     }

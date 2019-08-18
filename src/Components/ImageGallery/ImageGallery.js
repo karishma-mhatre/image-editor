@@ -1,26 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { sendSaveRequest, saveImage } from '../../Actions';
+import { saveImage } from '../../Actions';
+import ImageContainer from '../ImageContainer/ImageContainer';
+import './image-gallery.css';
 
 class ImageGallery extends Component {
     constructor(props) {
         super(props);
     }
-    handleSave = (imageType, imageSrc) => {
-        this.props.dispatch(saveImage(imageType, imageSrc))
-    }
 
     render() {
         return (
-            <div>
+            <div className="container image-gallery">
                 {
                     this.props.images.map((imageInfo, index) => (
-                        <div key={index}>
-                            <img src={imageInfo.imgSrc}></img>
-                            <div>
-                                <button onClick={() => {this.handleSave(imageInfo.type, imageInfo.imgSrc)}}>Save</button>
-                            </div>
-                        </div>
+                        <ImageContainer imageInfo={imageInfo} key={index}></ImageContainer>
                     ))
                 }
             </div>

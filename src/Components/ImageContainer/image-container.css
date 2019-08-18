@@ -1,0 +1,7 @@
+.image-container {
+    flex-direction: column;
+}
+
+.image-container--image img{
+    max-width: 100%;
+}

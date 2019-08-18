@@ -1,0 +1,16 @@
+.image-selector {
+    display: inline-block;
+}
+
+.file-upload-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.file-upload-wrapper input[type=file] {
+    font-size: 20px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}

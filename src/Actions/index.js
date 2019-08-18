@@ -19,6 +19,12 @@ export const sendSaveRequest = (imageType) => ({
     imageType
 })
 
+export const receiveSaveResponse = (imageType, imageLink) => ({
+    type: RECEIVE_SAVE_RESPONSE,
+    imageType,
+    imageLink
+})
+
 export const saveImage = (imageType, imageSrc) => dispatch => {
     dispatch(sendSaveRequest(imageType))
     const formData = new FormData();
@@ -36,14 +42,8 @@ export const saveImage = (imageType, imageSrc) => dispatch => {
             }).then((response) => response.json())
             .then((res) => {
                 console.log(res)
-                dispatch(receiveSaveResponse(res.data.link))
+                dispatch(receiveSaveResponse(imageType, res.data.link))
             });
         })
     console.log("inside save");
 }
-
-export const receiveSaveResponse = (imageType, imageLink) => ({
-    type: RECEIVE_SAVE_RESPONSE,
-    imageType,
-    imageLink
-})
