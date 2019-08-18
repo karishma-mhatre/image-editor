@@ -8,12 +8,12 @@ export const convertFileToImageSrc = (file) => {
     })
 }
 
-export const convertImageToCanvas = (img, width, height) => {
+export const convertImageToCanvas = (img, width, height, x = 0, y = 0) => {
     return new Promise((resolve,reject) => {
         let canvas = document.createElement('canvas');
         canvas.width = width;
         canvas.height = height;
-        canvas.getContext('2d').drawImage(img, 0, 0);
+        canvas.getContext('2d').drawImage(img, x, y);
         resolve(canvas);
     })
 }
